@@ -1,0 +1,127 @@
+# Me-API Playground - Sample API Requests
+# Use this file with VS Code REST Client extension or import into Postman
+
+### Variables
+@baseUrl = http://localhost:8000
+@profileId = 1
+
+### Health Check
+GET {{baseUrl}}/health
+
+### Get All Profiles
+GET {{baseUrl}}/profiles
+
+### Get Profile by ID
+GET {{baseUrl}}/profiles/{{profileId}}
+
+### Create New Profile
+POST {{baseUrl}}/profiles
+Content-Type: application/json
+
+{
+  "name": "Alice Johnson",
+  "email": "alice.johnson@example.com",
+  "education": "Master's in Software Engineering from Carnegie Mellon",
+  "bio": "Experienced software engineer with expertise in cloud computing and microservices architecture.",
+  "location": "Austin, TX"
+}
+
+### Update Profile
+PUT {{baseUrl}}/profiles/{{profileId}}
+Content-Type: application/json
+
+{
+  "bio": "Updated bio with more details about my experience and passion for technology.",
+  "location": "San Francisco, CA"
+}
+
+### Add Skill to Profile
+POST {{baseUrl}}/profiles/{{profileId}}/skills
+Content-Type: application/json
+
+{
+  "name": "Kubernetes",
+  "level": "intermediate",
+  "category": "cloud"
+}
+
+### Get Profile Skills
+GET {{baseUrl}}/profiles/{{profileId}}/skills
+
+### Get Top Skills
+GET {{baseUrl}}/skills/top?limit=5
+
+### Search Skills
+GET {{baseUrl}}/skills/search?skill=python&level=expert
+
+### Add Project to Profile
+POST {{baseUrl}}/profiles/{{profileId}}/projects
+Content-Type: application/json
+
+{
+  "title": "Cloud Migration Tool",
+  "description": "Automated tool for migrating legacy applications to cloud infrastructure using Kubernetes and Docker.",
+  "technologies": ["Python", "Kubernetes", "Docker", "AWS", "Terraform"],
+  "github_url": "https://github.com/alice/cloud-migration-tool",
+  "live_url": "https://cloud-migration-demo.com",
+  "start_date": "2024-01-01T00:00:00Z",
+  "is_active": true
+}
+
+### Get Profile Projects
+GET {{baseUrl}}/profiles/{{profileId}}/projects
+
+### Search Projects by Skill
+GET {{baseUrl}}/projects?skill=python
+
+### Add Work Experience
+POST {{baseUrl}}/profiles/{{profileId}}/work
+Content-Type: application/json
+
+{
+  "company": "CloudTech Solutions",
+  "position": "Senior Cloud Engineer",
+  "description": "Led cloud infrastructure migration projects and mentored junior engineers in cloud technologies.",
+  "start_date": "2022-06-01T00:00:00Z",
+  "is_current": true,
+  "location": "Austin, TX"
+}
+
+### Get Work Experience
+GET {{baseUrl}}/profiles/{{profileId}}/work
+
+### Add Profile Link
+POST {{baseUrl}}/profiles/{{profileId}}/links
+Content-Type: application/json
+
+{
+  "platform": "github",
+  "url": "https://github.com/alice"
+}
+
+### Get Profile Links
+GET {{baseUrl}}/profiles/{{profileId}}/links
+
+### Global Search
+GET {{baseUrl}}/search?q=machine%20learning&limit=10
+
+### Search for Python Projects
+GET {{baseUrl}}/search?q=python&limit=5
+
+### Search for React Skills
+GET {{baseUrl}}/search?q=react&limit=5
+
+### Search for Software Engineer Profiles
+GET {{baseUrl}}/search?q=software%20engineer&limit=5
+
+### Delete Profile (Use with caution)
+DELETE {{baseUrl}}/profiles/{{profileId}}
+
+### Frontend Access
+GET {{baseUrl}}/
+
+### API Documentation
+GET {{baseUrl}}/docs
+
+### Alternative API Documentation
+GET {{baseUrl}}/redoc
